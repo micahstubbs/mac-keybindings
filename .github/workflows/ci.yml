@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test suite (portable checks and Swift tests)
+        run: ./tests/run.sh
+      - name: Build universal MacBindings bundle
+        run: |
+          ./macbindings/macbindings.sh build
+          bundle="$(ls -d "$HOME/Library/Application Support/MacBindings/builds"/build.*/MacBindings.app | head -1)"
+          lipo -archs "$bundle/Contents/MacOS/MacBindings"
+          codesign --verify --deep --strict "$bundle"
+      - name: Compile clipboard typer
+        run: xcrun swiftc -O clipboard-typer/right-control-v-daemon.swift -o "$RUNNER_TEMP/right-control-v-daemon"
+
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: ShellCheck
+        run: shellcheck macbindings/macbindings.sh clipboard-typer/install.sh kitty-tmux-prefix/*.sh tests/run.sh
