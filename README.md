@@ -70,15 +70,6 @@ the installed, permitted app; see the [MacBindings README](macbindings/README.md
   safe testing, distribution
 - [Contributing](CONTRIBUTING.md)
 
-## Pre-open-source review checklist
+## License
 
-This repository is private until these are done:
-
-- [ ] Choose a license (MIT or Apache-2.0 are the usual picks here), add
-      `LICENSE`, and update `package.json` `"license"`
-- [ ] Read every file once more before the visibility flip
-- [ ] Confirm the default bundle identifiers (`io.github.micahstubbs.*`) are
-      what you want published
-- [x] Confirm CI is green on the macOS runner
-- [ ] Decide whether to keep the scaffold files (`CLAUDE.md`, `package.json`)
-- [ ] Run the public-flip audit over the full history, then flip visibility
+[Apache License 2.0](LICENSE).

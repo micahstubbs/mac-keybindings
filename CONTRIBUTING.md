@@ -27,3 +27,6 @@ it can be unit-tested. If you change how windows are moved, also run
 the pull request which macOS version and hardware you used.
 
 Shell scripts use `set -euo pipefail` and should pass ShellCheck, which CI runs.
+
+By contributing, you agree that your contributions are licensed under the
+[Apache License 2.0](LICENSE), the same license as the project.

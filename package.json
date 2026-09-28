@@ -1,9 +1,9 @@
 {
   "name": "mac-keybindings",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "Native macOS keyboard and mouse shortcuts without a third-party hotkey utility",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "scripts": {
     "test": "bash tests/run.sh"
   }
