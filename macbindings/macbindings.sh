@@ -96,7 +96,7 @@ PY
     # Gracefully stop a manually opened instance too; do not touch BetterTouchTool.
     if pgrep -x MacBindings >/dev/null; then
       pkill -TERM -x MacBindings
-      for attempt in 1 2 3 4 5; do
+      for _ in 1 2 3 4 5; do
         if ! pgrep -x MacBindings >/dev/null; then break; fi
         sleep 1
       done

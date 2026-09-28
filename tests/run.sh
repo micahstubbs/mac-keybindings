@@ -61,9 +61,10 @@ if "$ROOT/macbindings/macbindings.sh" bogus >/dev/null 2>&1; then fail "unknown 
 USAGE="$("$ROOT/macbindings/macbindings.sh" bogus 2>&1 || true)"
 grep -q 'uninstall' <<<"$USAGE" || fail "usage should list uninstall"
 pass "macbindings.sh rejects unknown commands with usage"
-grep -q 'let defaultBundleIdentifier = "io.github.micahstubbs.macbindings"' "$ROOT/macbindings/Sources/Bindings.swift" \
-  && grep -q 'MACBINDINGS_BUNDLE_ID:-io.github.micahstubbs.macbindings' "$ROOT/macbindings/macbindings.sh" \
-  || fail "app and installer must share one default bundle identifier"
+if ! grep -q 'let defaultBundleIdentifier = "io.github.micahstubbs.macbindings"' "$ROOT/macbindings/Sources/Bindings.swift" \
+  || ! grep -q 'MACBINDINGS_BUNDLE_ID:-io.github.micahstubbs.macbindings' "$ROOT/macbindings/macbindings.sh"; then
+  fail "app and installer must share one default bundle identifier"
+fi
 pass "app and installer share the default bundle identifier"
 
 # --- No personal data in the tree -------------------------------------------

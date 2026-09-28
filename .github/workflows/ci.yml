@@ -11,7 +11,7 @@ jobs:
   macos:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Test suite (portable checks and Swift tests)
         run: ./tests/run.sh
       - name: Build universal MacBindings bundle
@@ -26,6 +26,6 @@ jobs:
   shellcheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: ShellCheck
         run: shellcheck macbindings/macbindings.sh clipboard-typer/install.sh kitty-tmux-prefix/*.sh tests/run.sh
