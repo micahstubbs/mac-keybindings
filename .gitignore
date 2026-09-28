@@ -1,0 +1,6 @@
+.beads/
+.env
+node_modules/
+docs/session-summaries/
+.DS_Store
+build/
