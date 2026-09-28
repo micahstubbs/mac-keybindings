@@ -79,6 +79,6 @@ This repository is private until these are done:
 - [ ] Read every file once more before the visibility flip
 - [ ] Confirm the default bundle identifiers (`io.github.micahstubbs.*`) are
       what you want published
-- [ ] Confirm CI is green on the macOS runner
+- [x] Confirm CI is green on the macOS runner
 - [ ] Decide whether to keep the scaffold files (`CLAUDE.md`, `package.json`)
 - [ ] Run the public-flip audit over the full history, then flip visibility
